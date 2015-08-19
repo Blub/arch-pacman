@@ -1,0 +1,5 @@
+arch-pacman (4.2.1-1) unstable; urgency=low
+
+  * Initial release for Proxmox VE
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 19 Aug 2015 09:00:00 +0200

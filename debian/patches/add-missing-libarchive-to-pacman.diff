@@ -1,0 +1,10 @@
+diff a/src/pacman/Makefile.am b/src/pacman/Makefile.am 
+--- a/src/pacman/Makefile.am
+--- b/src/pacman/Makefile.am
+@@ -45,5 +45,5 @@
+ 	util-common.h util-common.c
+ 
+-LDADD = $(LTLIBINTL) $(top_builddir)/lib/libalpm/.libs/libalpm.la
++LDADD = $(LTLIBINTL) $(top_builddir)/lib/libalpm/.libs/libalpm.la $(LIBARCHIVE_LIBS)
+ 
+ # vim:set noet:

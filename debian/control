@@ -1,0 +1,27 @@
+Source: arch-pacman
+Section: admin
+Priority: optional
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Build-Depends: debhelper (>= 9), autotools-dev, dh-autoreconf, linux-libc-dev, bash (>= 4.1), libarchive-dev, libgpgme11-dev, gnupg, libcurl-dev
+Standards-Version: 3.9.5
+Homepage: https://archlinux.org
+
+Package: arch-pacman
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, bash (>= 4.1), libarchive13, libgpgme11, gnupg, libcurl3
+Description: ArchLinux package manager
+ A library-based package manager with dependency support.
+
+Package: arch-pacman-dbg
+Section: debug
+Architecture: any
+Depends: arch-pacman (= ${binary:Version}), arch-pacman-dev (= ${binary:Version}), ${misc:Depends}
+Description: Debug symbols for arch-pacman
+ This package contains the debug symbols for the ArchLinux package manager.
+
+Package: arch-pacman-dev
+Section: libdevel
+Architecture: any
+Depends: arch-pacman (= ${binary:Version}), ${misc:Depends}
+Description: ArchLinux package manager (development)
+ A library-based package manager with dependency support.
