@@ -23,7 +23,7 @@ ${DEB}: ${SRCTAR}
 	rm -rf ${SRCDIR}
 	tar xf ${SRCTAR}
 	cp -a debian ${SRCDIR}/debian
-	echo "git clone git://git.proxmox.com/git/arch-pacman.git\\ngit checkout ${GITVERSION}" >  ${SRCDIR}/debian/SOURCE
+	echo "git clone git://projects.archlinux.org/pacman.git\\ngit checkout ${GITVERSION}" >  ${SRCDIR}/debian/SOURCE
 	cd ${SRCDIR}; DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -rfakeroot -b -us -uc
 	lintian ${DEBS}
 
@@ -37,19 +37,6 @@ download ${SRCTAR}:
 	(cd pacman-git && git archive --prefix=${SRCDIR}/ --format=tar v${PACMANVER}) | gzip > ${SRCTAR}.tmp
 	mv ${SRCTAR}.tmp ${SRCTAR}
 	rm -rf pacman-git
-
-# FIXME:
-#.PHONY: upload
-#upload: ${DEBS}
-#	umount /pve/${RELEASE}; mount /pve/${RELEASE} -o rw 
-#	mkdir -p /pve/${RELEASE}/extra
-#	rm -f /pve/${RELEASE}/extra/${PACKAGE}_*.deb
-#	rm -f /pve/${RELEASE}/extra/${PACKAGE}-dev_*.deb
-#	rm -f /pve/${RELEASE}/extra/${PACKAGE}-dbg_*.deb
-#	rm -f /pve/${RELEASE}/extra/Packages*
-#	cp ${DEBS} /pve/${RELEASE}/extra
-#	cd /pve/${RELEASE}/extra; dpkg-scanpackages . /dev/null > Packages; gzip -9c Packages > Packages.gz
-#	umount /pve/${RELEASE}; mount /pve/${RELEASE} -o ro
 
 distclean: clean
 
