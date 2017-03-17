@@ -8,7 +8,7 @@ Homepage: https://archlinux.org
 
 Package: arch-pacman
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, bash (>= 4.1), libarchive13, libgpgme11, gnupg, libcurl3
+Depends: ${shlibs:Depends}, ${misc:Depends}, bash (>= 4.1)
 Description: ArchLinux package manager
  A library-based package manager with dependency support.
 
