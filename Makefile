@@ -1,5 +1,3 @@
-RELEASE=5.0.1
-
 PACKAGE=arch-pacman
 PACMANVER=5.0.1
 DEBREL=1
