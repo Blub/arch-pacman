@@ -1,5 +1,5 @@
 PACKAGE=arch-pacman
-PACMANVER=5.0.1
+PACMANVER=5.0.2
 DEBREL=1
 
 SRCDIR=pacman
@@ -29,7 +29,8 @@ ${DEB}: ${SRCTAR}
 deb ${DEB2}: ${DEB}
 
 .PHONY: download
-download ${SRCTAR}:
+download: ${SRCTAR}
+${SRCTAR}:
 	rm -rf ${SRCDIR} ${SRCTAR} pacman-git
 	git clone --depth=1 --branch=v${PACMANVER} git://projects.archlinux.org/pacman.git pacman-git
 	(cd pacman-git && git archive --prefix=${SRCDIR}/ --format=tar v${PACMANVER}) | gzip > ${SRCTAR}.tmp
